@@ -1,0 +1,102 @@
+\newcommand{\mi}{\textcolor{white}{w} \quad\quad\quad\quad\quad}
+\newcommand{\hilb}{\mathcal{H}}
+\newcommand{\epsi}{\varepsilon}
+\newcommand{\epso}{\varepsilon_0}
+\newcommand{\vphi}{\varphi}
+\newcommand{\inte}{\int\limits}
+\newcommand{\suml}{\sum\limits}
+\newcommand{\ents}{$\hat{=}$\ }
+\newcommand{\lb }{\left(}
+\newcommand{\rb }{\right)}
+\newcommand{\lsb }{\left[}
+\newcommand{\rsb }{\right]}
+\newcommand{\llb}{\left\lbrace}
+\newcommand{\rrb}{\right\rbrace}
+\newcommand{\rra}{\right\rangle}
+\newcommand{\lla}{\left\langle}
+\newcommand{\labs}{\left|}
+\newcommand{\rabs}{\right|}
+\newcommand{\lab}{\left\|}
+\newcommand{\rab}{\right\|}
+\newcommand{\lno}{\left.}
+\newcommand{\rno}{\right.}
+\newcommand{\ub}[2]{\,\smash{\underbrace{#1}_{#2}}\vphantom{#1}\,}
+\newcommand{\lt}{\leadsto}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ua}{\uparrow}
+\newcommand{\Ua}{\Uparrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
+\newcommand{\da}{\downarrow}
+\newcommand{\Da}{\Downarrow}
+\newcommand{\cra}{\curvearrowright}
+\renewcommand{\braket}{\Braket}
+\renewcommand{\bra}{\Bra}
+\renewcommand{\ket}{\Ket}
+\renewcommand{\mel}{\matrixelement}
+\renewcommand{\set}{\Set}
+\renewcommand{\bar}{\overline}
+\newcommand{\Pa}{\mathrm{d}}
+\renewcommand{\mathbb}[1]{\mathds{#1}}
+\newcommand{\pa}{\partial}
+\newcommand{\defi}{\coloneqq} % :=
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\tk}[1]{\textit{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\ora}[1]{\overrightarrow{#1}}
+\newcommand{\define}{\coloneqq} % :=
+\newcommand{\thor}{\Lightning{}}
+\newcommand{\Hil}{\mathscr{H}}
+\newcommand{\1}{\mb{1}}
+\newcommand{\Lag}{\mc{L}}
+\newcommand{\E}{\mc{E}}
+\newcommand{\Ham}{\mc{H}}
+
+\newcommand{\Lap}{\bm{\Delta}}
+\newcommand{\quab}{\pmb{\square}}
+\newcommand{\fvec}[1]{{\bm{#1}}}
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\dfrac}[2]{\frac{\Pa #1}{\Pa #2}}
+\newcommand{\defrac}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\delfrac}[2]{\frac{\pa #1}{\pa #2}}
+\newcommand{\blue}[1]{\color{blue!80!black} #1 \color{black}}
+\newcommand{\imp}[1]{\subsubsection{\blue{ #1 }}}
+\newcommand{\mar}[1]{\textbf{#1}}
+\newcommand{\J}{\mc{J}}
+\newcommand{\Ort}{\mc{O}}
+\newcommand{\Rot}{\mc{R}}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}}
+\newcommand{\nbox}[1]{\fbox{\parbox{.5\textwidth}{#1}}}
+\renewcommand{\Re}{\mathfrak{Re}}
+\renewcommand{\Im}{\mathfrak{Im}}
+\newcommand{\uul}[1]{\uuline{\mkern-1mu #1\mkern-1mu}\mkern2mu}
+\newcommand{\poisson}[2]{ \lb \delfrac{#1}{q^\alpha}\delfrac{#2}{p_\alpha} - \delfrac{#1}{p_\alpha}\delfrac{#2}{q^\alpha}\rb }
+
+
+\newcommand{\vorlesung}[1]{{\par% Doppelte Klammern wichtig, damit graue Farbe eingeschränkt wird
+  \color{gray}
+  \bigskip%
+  \hrule height 0.5pt%
+  \kern 5pt%
+  \hbox to \textwidth{\hfil\small\smash{Ende Vorlesung am \textbf{#1}}\vphantom{M}\hfil}%
+  \kern 5pt%
+  \hrule height 0.5pt%
+  \kern\medskipamount%
+}} % Doppelte Klammern wichtig, damit graue Farbe eingeschränkt wird
+%\renewcommand{\vorlesung}[1]{} %Einkommentieren, um Vorlesungsdaten auszublenden
+
+\newenvironment{example}{
+    \begin{leftbar}
+    \tb{Example:}
+}
+{
+    \end{leftbar}
+}

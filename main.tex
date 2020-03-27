@@ -1,0 +1,159 @@
+ \documentclass[headtopline=0.08em,headsepline=0.04em, bindingoffset = 5mm]{scrbook}
+
+\usepackage[autooneside = false]{scrlayer-scrpage}
+    \automark[section]{chapter}
+    \ohead{\leftmark}
+    \ihead{\rightmark}
+    \addtokomafont{pagenumber}{\bfseries}
+
+\usepackage[british]{babel}
+\usepackage{blindtext}
+\usepackage{cancel}
+\usepackage[figurename={Abb.}, tablename={Tab.}]{caption} %Abb. statt Abbildung bei Grafiken sowie Tab. statt Tabelle
+\usepackage{chngcntr}
+\usepackage{xcolor}
+\usepackage{dsfont}
+\usepackage[T1]{fontenc} % Schrift ordentlich rendern, damit Umlaute auch Umlaute sind und nicht Vokale mit Doppelpunkten drüber
+\usepackage[utf8]{luainputenc} % Interpretation des Inputs in utf8 (inkl. Umlaute, Akzente, etc.)
+\usepackage{lmodern} % Ordentliche skalierbare Schriftart
+\usepackage{framed}
+\usepackage{graphicx} %zum einbinden von Grafiken
+\usepackage{multicol}
+\usepackage{makeidx}
+\usepackage{mathtools}
+\usepackage{soul}
+
+\usepackage{paralist}
+\usepackage{perpage}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usetikzlibrary{mindmap,decorations.pathreplacing,patterns,hobby,calc,3d}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/]
+
+\usepackage{todonotes}
+\usepackage{wrapfig} %zur wrapfigure-Umgebung, damit Grafiken nicht über die ganze Seitenbreite gehen
+
+\usepackage{nicefrac} %zum darstellen von 1/2 in "schön"
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{tensor}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{upgreek}
+\usepackage{marvosym}
+\usepackage{amsfonts, amsmath, amssymb} %Mathezeugs
+\usepackage{ulem}
+
+\usepackage{stackengine,scalerel}
+\usepackage{calc}
+
+\usepackage{hyperref} %zum referenzieren von Abbildungen, Gleichungen etc.
+\makeatletter
+\def\@footnotecolor{myorange}
+\define@key{Hyp}{footnotecolor}{%
+ \HyColor@HyperrefColor{#1}\@footnotecolor%
+}
+\def\@footnotemark{%
+    \leavevmode
+    \ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+    \stepcounter{Hfootnote}%
+    \global\let\Hy@saved@currentHref\@currentHref
+    \hyper@makecurrent{Hfootnote}%
+    \global\let\Hy@footnote@currentHref\@currentHref
+    \global\let\@currentHref\Hy@saved@currentHref
+    \hyper@linkstart{footnote}{\Hy@footnote@currentHref}%
+    \@makefnmark
+    \hyper@linkend
+    \ifhmode\spacefactor\@x@sf\fi
+    \relax
+  }%
+\makeatother
+\hypersetup{
+  linkcolor = blue,
+  citecolor  = myorange,
+  urlcolor   = myblue,
+  colorlinks = true,
+}
+%
+\definecolor{myred}  {HTML}{A3061E}
+\definecolor{myblue} {RGB} {0,63,119}
+\definecolor{myyellow} {cmy} {0,0.263,0.741}
+\definecolor{mygreen} {HTML}{0B6E4F}
+%
+\colorlet{myorange} {myyellow!60!myred}
+\colorlet{myviolett} {myred!50!myblue!80}
+
+\definecolor{orange}{rgb}{1, 0.5, 0} %selbsterklärend
+\definecolor{yellow}{rgb}{1, 1, 0}
+
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand*{\thesubsection}{\thesection.\arabic{subsection}}
+
+\MakePerPage{footnote} %Fußnoten werden am Ende jeder Seite statt am Ende des Dokuments angezeigt
+
+\numberwithin{equation}{chapter} %Damit Formeln im Format Chapter-Zahl.Formelzahl nummeriert werden (z.B.: I.17, II.3)
+\counterwithin{figure}{chapter} %Damit Abbildungen im Format Chapter-Zahl.Abbildungszahl nummeriert werden (z.B.: I.17, II.3)
+\counterwithin{table}{chapter} %Damit Abbildungen im Format Chapter-Zahl.Tabellenzahl nummeriert werden (z.B.: I.17, II.3)
+
+
+\setcounter{tocdepth}{2} %Im Inhaltsverzeichnis werden Chapter und Sections angezeigt.
+
+\newlength\shlength
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+
+\input{short.tex}
+
+%\RedeclareSectionCommands[tocdynnumwidth]{chapter,section}
+\RedeclareSectionCommands[tocdynnumwidth]{chapter,section}
+
+\begin{document}
+{\KOMAoptions{twoside = false}
+\begin{titlepage}
+	\centering
+	\vfill
+	{\scshape\LARGE Friedrich-Alexander-Universität \\ Erlangen-Nürnberg \par}
+	\vfill
+	{\scshape\Large Transcript of the lecture advanced experimental physics B\\   \par}
+	\vfill
+	{\huge\bfseries Particle and astroparticle physics\par}
+	\vfill
+	\includegraphics[width=0.9\textwidth]{imgs/title.jpg}
+	\vfill
+	{\Large\itshape following the lecture of Prof. Dr. C. van Eldik\par}
+	\vfill
+	{\large written by Michael Winter \par}
+    \vfill
+    {\large last compiled on \today}
+    \vfill
+	{\large summer semester 2019 + 2020\par}
+	\vfill
+\end{titlepage}}
+
+\tableofcontents %Fügt ein Inhaltsverzeichnis ein
+\clearpage %Beendet die Seite
+
+\chapter*{Preface}
+Before the essential contents of the lectures are presented, some remarks have to be made:\\
+This script -- or rather this lecture transcript -- was written in the course of the summer semester 2019 accompanying the lecture Advanced experimental physics: Particle and astroparticle physics, read by Prof. Dr. van Eldik. In its peculiarity, this transcript is probably also incorrect and inaccurate.
+
+\tb{If you have an overleaf account, you can mark the appropriate places in the code and leave a comment, what needs to be improved.} So others can benefit from a correction as well.
+
+In addition, the script is constantly being revised with regard to spelling, structure and content.
+
+\input{kap1}
+%\input{kap2}
+%\input{kap3}
+%\input{kap4}
+%\input{kap5}
+%\input{kap6}
+%\input{kap7}
+%\input{kap8}
+%\input{kap9}
+
+\listoffigures
+\end{document}
+
