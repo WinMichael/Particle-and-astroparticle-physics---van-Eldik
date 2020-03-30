@@ -2,9 +2,9 @@
 \section{Units}
 In general natural units are used: $\hbar = \mathrm c = 1$
 \begin{compactitem}
-    \item[$\ra$] energy, mass and momentum: $\lsb E\rsb$
-    \item[$\ra$] length and time: $\lsb E\rsb ^{-1}$
-    \item[$\ra$] cross section: $\lsb E\rsb ^{-2}$
+    \item[$\ra$] energy, mass and momentum: $\qty[ E]$
+    \item[$\ra$] length and time: $\qty[ E] ^{-1}$
+    \item[$\ra$] cross section: $\qty[ E] ^{-2}$
 \end{compactitem}
 \begin{example}
 \begin{align*}
@@ -15,8 +15,8 @@ In general natural units are used: $\hbar = \mathrm c = 1$
 \section{Relativistic kinematics}
 We will use four vector notation, i.e.
 \begin{align}
-    \fvec A = \lb A^0, \vec A\rb \longrightarrow A^\mu & & \text{contravariant}\\
-    \lb A^0, -\vec A\rb \longrightarrow A_\mu & & \text{covariant.}
+    \fvec A = \qty( A^0, \vec A) \longrightarrow A^\mu & & \text{contravariant}\\
+    \qty( A^0, -\vec A) \longrightarrow A_\mu & & \text{covariant.}
 \end{align}
 \paragraph{Lorentz trafos}
 Remember that the Lorentz transformation $\uul \Lambda$:
@@ -25,16 +25,16 @@ Remember that the Lorentz transformation $\uul \Lambda$:
 \end{align}
 The transformation along the $z$-axis  is a Lorentz-boost
 \begin{align}
-    \tensor{\Lambda}{^\mu_\nu} \ra \uul \Lambda = \mat{\gamma & 0 &  0 &- \nicefrac \gamma \beta \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ - \nicefrac \gamma \beta & 0 & 0 & \gamma} \qquad \text{ with } \beta = \frac vc, \ \gamma = \frac{1}{\sqrt{1-\beta^2}}\,.
+    \tensor{\Lambda}{^\mu_\nu} \ra \uul \Lambda = \mqty(\gamma & 0 &  0 &- \nicefrac \gamma \beta \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ - \nicefrac \gamma \beta & 0 & 0 & \gamma) \qquad \text{ with } \beta = \frac vc, \ \gamma = \frac{1}{\sqrt{1-\beta^2}}\,.
 \end{align}
 The Lorentz transformation is a \tb{unitary} transformation: ''rotation in 4-space``
 \paragraph{Momentum four vector}
 \begin{align}
-    x^\mu \ra \fvec x = \lb t, \vec x\rb, \qquad E = \gamma m \mr c^2 = \gamma m, \qquad \vec p = \gamma m \vec v = \gamma m \vec \beta
+    x^\mu \ra \fvec x = \qty( t, \vec x), \qquad E = \gamma m \mr c^2 = \gamma m, \qquad \vec p = \gamma m \vec v = \gamma m \vec \beta
 \end{align}
-So it is easy to see that the momentim vector $\vec p$ is measured in units of energy. Thus we may choose the following four vector as momentum four vector (and indeed it is)
+So it is easy to see that the momentum vector $\vec p$ is measured in units of energy. Thus we may choose the following four vector as momentum four vector (and indeed it is)
 \begin{align}
-    p^\mu \ra \fvec p = \lb E, \vec p \rb, \qquad \Ra E^2 = \vec p^2 +m^2\,.
+    p^\mu \ra \fvec p = \qty( E, \vec p ), \qquad \Ra E^2 = \vec p^2 +m^2\,.
 \end{align}
 \paragraph{Basic invariant} under Lorentz transformation is the scalar product
 \begin{align}
@@ -57,19 +57,19 @@ So it is easy to see that the momentim vector $\vec p$ is measured in units of e
         \end{tikzpicture}
     \end{center}
     \begin{align}
-        s \defi \lb \fvec p_1 + \fvec p_2\rb^2 = \lb \fvec p_1 + \fvec p_2 \rb^\mu \lb \fvec p_1 + \fvec p_2 \rb_\mu 
+        s \defi \qty( \fvec p_1 + \fvec p_2)^2 = \qty( \fvec p_1 + \fvec p_2 )^\mu \qty( \fvec p_1 + \fvec p_2 )_\mu 
     \end{align}
     is Lorentz invariant since it is a scalar product. Hence it is the same in all reference frames.
 \end{example}
 \paragraph{Four vector derivatives}
 \begin{align}
-    \pa_\mu = \pdv{x^\mu} \ra \lb \pa_t, \vec \grad \rb
+    \pa_\mu = \pdv{x^\mu} \ra \qty( \pa_t, \vec \grad )
 \end{align}
 transforms like a covariant vector. Whereas
 \begin{align}
     \pa^\mu = \pdv{x_\mu} \ra \qty(t, - \vec \grad)
 \end{align}
-transforms like a contravariant vector. The ''scalar product`` of these two is the d'Alembert operator
+transforms like a controvariant vector. The ''scalar product`` of these two is the d'Alembert operator
 \begin{align}
     \Box \defi \pa_\mu\pa^\mu = \pa_t^2 - \Lap\,,
 \end{align}
@@ -195,20 +195,92 @@ These give pictorial representations of particle reactions. Perturbative expansi
     \begin{align}
         \sigma \propto W, \qquad W \propto \qty| amplitude_1 + amplitude_2 |^2 \propto \frac{\mr e^4}{\fvec q^4}
     \end{align}
-    The factor $\nicefrac{1}{\fvec q^4}$ leads to a rapid decrease of the cross section as momentum transfer increases.
+    The factor $\nicefrac{1}{\fvec q^4}$ leads to a rapid decrease of the cross section as momentum transfer increases. In the centre of mass system this can be depicted as:
     \begin{center}
-        \begin{tikzpicture}
+        \tdplotsetmaincoords{60}{110}
+        \begin{tikzpicture}[tdplot_main_coords]
             \coordinate (O) at (0,0,0);
-            \tdplotsetcoord{P}{3.5}{90}{30};
-            \draw[-latex] (-3.25,0) node [left] {$\fvec p_1$} -- (-.25,0);
-            \draw[latex-] (.25,0) -- (3.25,0) node [right] {$\fvec p_2$};
+            \tdplotsetcoord{P}{3.5}{30}{90};
+            \tdplotsetcoord{P1}{5}{40}{90};
+            \node at (P1) {$\fvec p_1' = \qty(E_1', \vec p_1')$};
+            \draw[-latex] (0,-3.25,0) node [above left] {$\fvec p_1$} node [below left] {$\mr e^-$} -- (0,-.25,0);
+            \draw[latex-] (0,.25,0) -- (0,3.25,0) node [above right] {$\fvec p_2$} node [below right] {$\upmu^-$};
             \draw[-latex] (O) -- (P);
-            %\draw (0,0,0) arc (-30:30:1) {$\theta$};
-            %\tdplotsetthetaplanecoords{30}
-            \tdplotdrawarc{(O)}{1}{0}{30}{anchor = east}{$\theta$};
-            \tdplotdrawarc{(O)}{3.5}{25}{35}{}{};
-            \tdplotsetphiplanecoords{30}
-			\tdplotdrawarc[tdplot_rotated_coords]{(0)}{3.5}{25}{35}{}{};
+            \tdplotsetthetaplanecoords{90};
+            \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{1}{30}{90}{anchor = north east}{$\theta$};
+            \tdplotdrawarc[tdplot_rotated_coords, -latex, myblue]{(0,0,0)}{2}{30}{0}{anchor = south}{incr. $\fvec q^2$};
+            %
+            \tdplotsetthetaplanecoords{80};
+            \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{3.5}{20}{40}{anchor=south west}{};
+            \tdplotsetthetaplanecoords{100};
+            \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{3.5}{20}{40}{anchor=south west}{};
+            \foreach \i in {-10,-9,...,9}
+                \draw (xyz spherical cs:radius=3.5, latitude=50, longitude=\i) -- (xyz spherical cs:radius=3.5, latitude=50, longitude=\i+1);
+            \foreach \i in {-10,-9,...,9}
+                \draw (xyz spherical cs:radius=3.5, latitude=70, longitude=\i) -- (xyz spherical cs:radius=3.5, latitude=70, longitude=\i+1);
         \end{tikzpicture}
     \end{center}
+    Then $ W \propto \nicefrac{1}{\fvec q^4}$ $\longrightarrow$ mostly forward scattering $\qty(\theta \approx \SI{0}{\degree})$.\\
+    cf.: Rutherford scattering
+    \begin{align}
+        \dv{\sigma}{\Omega} \propto \frac{1}{\sin[4](\nicefrac{\theta}{2})}\,.
+    \end{align}
 \end{example}
+
+The above example sketches only the leading order terms. Thus the question arises how one would calculate the full scattering amplitude?
+\begin{align}
+    \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
+        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$],
+        b -- [scalar, opacity = 0] d,
+        e [particle = $\upmu^-$]-- [fermion] d -- [fermion] f [particle = $\upmu^-$],
+        };
+        =
+        & \underbrace{
+        \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
+        a -- [fermion] b -- [fermion] c,
+        b -- [photon] d,
+        e -- [fermion] d -- [fermion] f,
+        };
+        }_\text{1\textsuperscript{st} order}
+        +
+        \underbrace{
+        \feynmandiagram[vertical = b to g, baseline = -1.45cm, small]{
+        a -- [anti fermion] b -- [anti fermion] c -- [anti fermion] d,
+        b -- [photon] g,
+        c -- [photon] f,
+        e -- [fermion] f -- [fermion] g -- [fermion] h,
+        };
+        + 
+        \feynmandiagram[vertical = c to g, baseline = -1.75cm, small]{
+        a -- [fermion] b -- [fermion] c -- [fermion] d -- [fermion] e,
+        b -- [photon, half left] d,
+        c -- [photon] g,
+        f -- [anti fermion] g -- [anti fermion] h,
+        };
+        + 
+        \feynmandiagram[vertical = b to d, baseline = -2.1cm, small]{
+        a -- [anti fermion] b -- [anti fermion] c,
+        b -- [photon] d -- [fermion, half left] e -- [photon] g,
+        d -- [anti fermion, half right] e,
+        f -- [anti fermion] g -- [anti fermion] h,
+        };
+        }_\text{2\textsuperscript{nd} order}
+        \nonumber \\
+        & +
+        \underbrace{
+        \feynmandiagram[vertical = b1 to e3, baseline = -1.45cm, small]{
+        a -- [anti fermion] b1 -- [anti fermion] b2 -- [anti fermion] b3 -- [anti fermion] c,
+        b1 -- [photon] e3,
+        b2 -- [photon] e2,
+        b3 -- [photon] e1,
+        d -- [fermion] e1 -- [fermion] e2 -- [fermion] e3 -- [fermion] f,
+        };
+        + \dots}_\text{3\textsuperscript{rd} order}
+        + \dots
+        \nonumber \\
+        full\ amplitude = & \underset{\propto \mr e^2 \propto \alpha}{leading\ order} + \underset{\propto \mr e^4 \propto \alpha^2}{2\textsuperscript{nd}\ order} + \underset{\propto \mr e^6 \propto \alpha^3}{3\textsuperscript{rd}\ order}
+\end{align}
+\begin{compactitem}
+    \item[with] $\displaystyle \alpha = \frac{\mr e^2}{4 \pi \hbar \mr c \upvarepsilon_0} = \frac{1}{137}$
+\end{compactitem}
+Thus in QED it is sufficient to only calculate the first order. It is sufficent to understand the basics of the process (cross section, angular distributions). For comparison to precision measurements sometimes more than 100 diagrams have to calculated.

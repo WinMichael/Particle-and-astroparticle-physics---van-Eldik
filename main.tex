@@ -2,8 +2,6 @@
 
 \usepackage[autooneside = false]{scrlayer-scrpage}
     \automark[section]{chapter}
-    \ohead{\leftmark}
-    \ihead{\rightmark}
     \addtokomafont{pagenumber}{\bfseries}
 
 \usepackage[british]{babel}
@@ -51,6 +49,7 @@
 \usepackage{calc}
 
 \usepackage{hyperref} %zum referenzieren von Abbildungen, Gleichungen etc.
+\usepackage{cleveref}
 \makeatletter
 \def\@footnotecolor{myorange}
 \define@key{Hyp}{footnotecolor}{%
@@ -145,7 +144,7 @@ This script -- or rather this lecture transcript -- was written in the course of
 In addition, the script is constantly being revised with regard to spelling, structure and content.
 
 \input{kap1}
-%\input{kap2}
+\input{kap2}
 %\input{kap3}
 %\input{kap4}
 %\input{kap5}
