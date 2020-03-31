@@ -177,16 +177,16 @@ These give pictorial representations of particle reactions. Perturbative expansi
     \end{multicols}
     Here the electromagnetic and the weak interaction contribute, i.e.
     \begin{align*}
-        \feynmandiagram[vertical= b to d, baseline = -2cm]{
-        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$],
-        b -- [photon, edge label = $\upgamma$] d,
-        e [particle = $\upmu^-$]-- [anti fermion] d -- [anti fermion] f [particle = $\upmu^-$],
+        \feynmandiagram[vertical'= b to d, baseline = -2cm]{
+        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$];
+        b -- [photon, edge label = $\upgamma$] d;
+        e [particle = $\upmu^-$]-- [anti fermion] d -- [anti fermion] f [particle = $\upmu^-$];
         };
         + 
-        \feynmandiagram[vertical= b to d, baseline = -2cm]{
-        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$],
-        b -- [scalar, edge label = $Z^0$] d,
-        e [particle = $\upmu^-$]-- [anti fermion] d -- [anti fermion] f [particle = $\upmu^-$],
+        \feynmandiagram[vertical'= b to d, baseline = -2cm]{
+        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$];
+        b -- [scalar, edge label = $Z^0$] d;
+        e [particle = $\upmu^-$]-- [anti fermion] d -- [anti fermion] f [particle = $\upmu^-$];
         };
         = e \frac{1}{\fvec q^2}e + g_1 \frac{1}{\fvec q^2 - M_Z^2} g_2
     \end{align*}
@@ -197,18 +197,18 @@ These give pictorial representations of particle reactions. Perturbative expansi
     \end{align}
     The factor $\nicefrac{1}{\fvec q^4}$ leads to a rapid decrease of the cross section as momentum transfer increases. In the centre of mass system this can be depicted as:
     \begin{center}
-        \tdplotsetmaincoords{60}{110}
-        \begin{tikzpicture}[tdplot_main_coords]
+			\tdplotsetmaincoords{60}{130}
+			\begin{tikzpicture}[tdplot_main_coords]
             \coordinate (O) at (0,0,0);
             \tdplotsetcoord{P}{3.5}{30}{90};
             \tdplotsetcoord{P1}{5}{40}{90};
-            \node at (P1) {$\fvec p_1' = \qty(E_1', \vec p_1')$};
+            \node at (P1) [xshift = 1em, yshift = 1em] {$\fvec p_1' = \qty(E_1', \vec p_1')$};
             \draw[-latex] (0,-3.25,0) node [above left] {$\fvec p_1$} node [below left] {$\mr e^-$} -- (0,-.25,0);
             \draw[latex-] (0,.25,0) -- (0,3.25,0) node [above right] {$\fvec p_2$} node [below right] {$\upmu^-$};
             \draw[-latex] (O) -- (P);
             \tdplotsetthetaplanecoords{90};
-            \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{1}{30}{90}{anchor = north east}{$\theta$};
-            \tdplotdrawarc[tdplot_rotated_coords, -latex, myblue]{(0,0,0)}{2}{30}{0}{anchor = south}{incr. $\fvec q^2$};
+            \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{1}{30}{90}{anchor = north, xshift = -.5em, yshift = .5em}{$\theta$};
+            \tdplotdrawarc[tdplot_rotated_coords, -latex, myblue]{(0,0,0)}{2}{30}{0}{anchor = south east, xshift = -1em}{incr. $\fvec q^2$};
             %
             \tdplotsetthetaplanecoords{80};
             \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{3.5}{20}{40}{anchor=south west}{};
@@ -229,56 +229,57 @@ These give pictorial representations of particle reactions. Perturbative expansi
 
 The above example sketches only the leading order terms. Thus the question arises how one would calculate the full scattering amplitude?
 \begin{align}
-    \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
-        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$],
-        b -- [scalar, opacity = 0] d,
-        e [particle = $\upmu^-$]-- [fermion] d -- [fermion] f [particle = $\upmu^-$],
+		\tdplotsetmaincoords{0}{0}
+		\feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
+        a [particle = $\mr e^-$] -- [anti fermion] b -- [anti fermion] c [particle = $\mr e^-$];
+        b -- [draw = none] d;
+        e [particle = $\upmu^-$]-- [anti fermion] d -- [anti fermion] f [particle = $\upmu^-$];
         };
         =
         & \underbrace{
         \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
-        a -- [fermion] b -- [fermion] c,
-        b -- [photon] d,
-        e -- [fermion] d -- [fermion] f,
+        a -- [fermion] b -- [fermion] c;
+        b -- [photon] d;
+        e -- [fermion] d -- [fermion] f;
         };
         }_\text{1\textsuperscript{st} order}
         +
         \underbrace{
         \feynmandiagram[vertical = b to g, baseline = -1.45cm, small]{
-        a -- [anti fermion] b -- [anti fermion] c -- [anti fermion] d,
-        b -- [photon] g,
-        c -- [photon] f,
-        e -- [fermion] f -- [fermion] g -- [fermion] h,
+        d -- [fermion] c -- [fermion] b -- [fermion] a;
+        b -- [photon] g;
+        c -- [photon] f;
+        e -- [fermion] f -- [fermion] g -- [fermion] h;
         };
         + 
         \feynmandiagram[vertical = c to g, baseline = -1.75cm, small]{
-        a -- [fermion] b -- [fermion] c -- [fermion] d -- [fermion] e,
-        b -- [photon, half left] d,
-        c -- [photon] g,
-        f -- [anti fermion] g -- [anti fermion] h,
+        a -- [fermion] b -- [fermion] c -- [fermion] d -- [fermion] e;
+        b -- [photon, half left] d;
+        c -- [photon] g;
+        f -- [anti fermion] g -- [anti fermion] h;
         };
         + 
         \feynmandiagram[vertical = b to d, baseline = -2.1cm, small]{
-        a -- [anti fermion] b -- [anti fermion] c,
-        b -- [photon] d -- [fermion, half left] e -- [photon] g,
-        d -- [anti fermion, half right] e,
-        f -- [anti fermion] g -- [anti fermion] h,
+        a -- [anti fermion] b -- [anti fermion] c;
+        b -- [photon] d -- [fermion, half left] e -- [photon] g;
+        d -- [anti fermion, half right] e;
+        f -- [anti fermion] g -- [anti fermion] h;
         };
         }_\text{2\textsuperscript{nd} order}
         \nonumber \\
         & +
         \underbrace{
         \feynmandiagram[vertical = b1 to e3, baseline = -1.45cm, small]{
-        a -- [anti fermion] b1 -- [anti fermion] b2 -- [anti fermion] b3 -- [anti fermion] c,
-        b1 -- [photon] e3,
-        b2 -- [photon] e2,
-        b3 -- [photon] e1,
-        d -- [fermion] e1 -- [fermion] e2 -- [fermion] e3 -- [fermion] f,
+        a -- [anti fermion] b1 -- [anti fermion] b2 -- [anti fermion] b3 -- [anti fermion] c;
+        b1 -- [photon] e3;
+        b2 -- [photon] e2;
+        b3 -- [photon] e1;
+        d -- [fermion] e1 -- [fermion] e2 -- [fermion] e3 -- [fermion] f;
         };
         + \dots}_\text{3\textsuperscript{rd} order}
         + \dots
         \nonumber \\
-        full\ amplitude = & \underset{\propto \mr e^2 \propto \alpha}{leading\ order} + \underset{\propto \mr e^4 \propto \alpha^2}{2\textsuperscript{nd}\ order} + \underset{\propto \mr e^6 \propto \alpha^3}{3\textsuperscript{rd}\ order}
+        full\ amplitude = & \underset{\propto \mr e^2 \propto \alpha}{\text{leading order}} + \underset{\propto \mr e^4 \propto \alpha^2}{\text{2\textsuperscript{nd} order}} + \underset{\propto \mr e^6 \propto \alpha^3}{\text{3\textsuperscript{rd} order}}
 \end{align}
 \begin{compactitem}
     \item[with] $\displaystyle \alpha = \frac{\mr e^2}{4 \pi \hbar \mr c \upvarepsilon_0} = \frac{1}{137}$

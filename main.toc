@@ -11,3 +11,7 @@
 \contentsline {paragraph}{\nonumberline Bosons (spin $1$)}{9}{section*.8}% 
 \contentsline {paragraph}{\nonumberline Scalar (spin $0$)}{9}{section*.9}% 
 \contentsline {section}{\numberline {I.4}Feynman diagrams}{9}{section.1.4}% 
+\contentsline {chapter}{\numberline {II}Covariant description of relativistic particles}{13}{chapter.2}% 
+\contentsline {section}{\numberline {II.1}Non-relativistic quantum mechanics}{13}{section.2.1}% 
+\contentsline {section}{\numberline {II.2}Relativistic particles: Klein-Gordon equation}{14}{section.2.2}% 
+\contentsline {section}{\numberline {II.3}Crossing symmetry}{16}{section.2.3}% 
