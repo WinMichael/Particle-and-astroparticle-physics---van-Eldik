@@ -32,6 +32,17 @@
 \tikzexternalize[prefix=tikz/]
 
 \usepackage{todonotes}
+%%%
+    \def\sothreecirc{\path[thin,dashed,draw=black,fill=black!20] (0,0) circle (\rad)}
+    \def\dotmiddle{\fill (0,0) circle (2pt)}
+    \def\rad{1.8cm}
+%%% Fixing the todonotes for tikzexternalize since it depends on tikz XD
+    \makeatletter
+    \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
+    \makeatother
+    \usepackage{letltxmacro}
+    \LetLtxMacro{\oldmissingfigure}{\missingfigure}
+    \renewcommand{\missingfigure}[2][]{\tikzexternaldisable\oldmissingfigure[#1]{#2}\tikzexternalenable}
 \usepackage{wrapfig} %zur wrapfigure-Umgebung, damit Grafiken nicht über die ganze Seitenbreite gehen
 
 \usepackage{nicefrac} %zum darstellen von 1/2 in "schön"
@@ -110,17 +121,19 @@
 \RedeclareSectionCommands[tocdynnumwidth]{chapter,section}
 
 \begin{document}
-{\KOMAoptions{twoside = false}
+{
 \begin{titlepage}
+    \KOMAoptions{twoside = false}
 	\centering
 	\vfill
 	{\scshape\LARGE Friedrich-Alexander-Universität \\ Erlangen-Nürnberg \par}
 	\vfill
 	{\scshape\Large Transcript of the lecture advanced experimental physics B\\   \par}
 	\vfill
-	{\huge\bfseries Particle and astroparticle physics\par}
+	{\huge\bfseries Particle and astroparticle physics\\
+	!!!currently under constrcution!!!\par}
 	\vfill
-	\includegraphics[width=0.9\textwidth]{imgs/title.jpg}
+	\includegraphics[width=0.9\textwidth]{imgs/ecap.jpg}
 	\vfill
 	{\Large\itshape following the lecture of Prof. Dr. C. van Eldik\par}
 	\vfill
@@ -145,13 +158,13 @@ In addition, the script is constantly being revised with regard to spelling, str
 
 \input{kap1}
 \input{kap2}
-%\input{kap3}
-%\input{kap4}
-%\input{kap5}
-%\input{kap6}
-%\input{kap7}
-%\input{kap8}
-%\input{kap9}
+\input{kap3}
+\input{kap4}
+\input{kap5}
+\input{kap6}
+\input{kap7}
+\input{kap8}
+\input{kap9}
 
 \listoffigures
 \end{document}

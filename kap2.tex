@@ -55,7 +55,7 @@ The probability density current, based on the Schrödinger equation, is not cova
 Now we use the \tb{relativistic} energy-momentum relation
 \begin{align}
     E^2 = \vec p^2 +m^2 \qquad E \ra \ti \hbar \pa_t, \quad \vec p \ra \ti \hbar \vec \grad\nonumber \\
-    \Ra \quad \boxed{\qty(\pa_t^2 - \Lap +m^2) \phi \qty(\vec x, t) = 0}\,.
+    \Ra \quad \boxed{\qty(\pa_t^2 - \Lap +m^2) \phi \qty(\vec x, t) = 0}\,. \label{eq:KGe}
 \end{align}
 This is the so-called \tb{Klein-Gordon equation}. By using four vector notation
 \begin{align}
@@ -177,48 +177,48 @@ The description of scattering processes is highly symmetric under the exchange o
     $\mr e^- \upmu^-$ scattering in QED
     
     By exchange of time and space, the Feynman diagram changes as:
-    \begin{align*}
+    \begin{center}
         \begin{tikzpicture}
             \begin{feynman}
-            \vertex (a1) {$\mr e^-$};
-            \vertex [below right = 2.5cm of a1] (b1);
-            \vertex [above right = 2cm of b1] (a2) {$\mr e^-$};
-            \vertex [below = 2cm of b1] (c1);
-            \vertex [below left = 2cm of c1] (d1) {$\upmu^+$};
-            \vertex [below right = 2cm of c1] (d2) {$\upmu^+$};
-            \vertex [right = 1cm of d1] (j1);
-            \vertex [left = 1cm of d2] (j2);
-            \vertex [right = 1cm of a1] (i1);
-            \vertex [left = 1cm of a2] (i2);
-            \vertex [below = 1cm of b1] (b2);
-            \vertex [right = 3cm of b2] (e) {$\hat =$};
-            \diagram*{
-            (a1) -- [fermion] (b1) -- [fermion] (a2);
-            (b1) -- [photon, edge label' = $\upgamma$] (c1);
-            (d1) -- [anti fermion] (c1) -- [anti fermion] (d2);
-            (j1) -- [draw = none, half left, momentum = $\ $, edge label' = $j^\mu \qty(\upmu^+)$] (j2);
-            (i1) -- [draw = none, half right, momentum' = $\ $, edge label = $j^\mu \qty(\mr e^-)$] (i2);
-            };
-            \vertex [right = 3cm of e] (y1);
-            \vertex [below left = 2cm of y1] (z1) {$\mr e^-$};
-            \vertex [above left = 2cm of y1] (z2) {$\mr e^+$};
-            \vertex [right = 2cm of y1] (x1);
-            \vertex [above right = 2cm of x1] (w1) {$\upmu^-$};
-            \vertex [below right = 2cm of x1] (w2) {$\upmu^+$};
-            \vertex [below = 1cm of w1] (k1);
-            \vertex [above = 1cm of w2] (k2);
-            \vertex [above = 1cm of z1] (l1);
-            \vertex [below = 1cm of z2] (l2);
-            \diagram*{
-            (z1) -- [fermion] (y1) -- [fermion] (z2);
-            (y1) -- [photon, edge label' = $\upgamma$] (x1);
-            (w1) -- [anti fermion] (x1) -- [anti fermion] (w2);
-            (k2) -- [draw = none, half left, momentum = $\ $, edge label' = $j^\mu \qty(\upmu^-)$] (k1);
-            (l1) -- [draw = none, half right, momentum' = $\ $, edge label = $j^\mu \qty(\mr e^-)$] (l2);
-            };
+                \vertex (a1) {$\mr e^-$};
+                \vertex [below right = 2.5cm of a1] (b1);
+                \vertex [above right = 2cm of b1] (a2) {$\mr e^-$};
+                \vertex [below = 2cm of b1] (c1);
+                \vertex [below left = 2cm of c1] (d1) {$\upmu^+$};
+                \vertex [below right = 2cm of c1] (d2) {$\upmu^+$};
+                \vertex [right = 1cm of d1] (j1);
+                \vertex [left = 1cm of d2] (j2);
+                \vertex [right = 1cm of a1] (i1);
+                \vertex [left = 1cm of a2] (i2);
+                \vertex [below = 1cm of b1] (b2);
+                \vertex [right = 3cm of b2] (e) {$\hat =$};
+                \diagram*{
+                (a1) -- [fermion] (b1) -- [fermion] (a2);
+                (b1) -- [photon, edge label' = $\upgamma$] (c1);
+                (d1) -- [anti fermion] (c1) -- [anti fermion] (d2);
+                (j1) -- [draw = none, half left, momentum = $\ $, edge label' = $j^\mu \qty(\upmu^+)$] (j2);
+                (i1) -- [draw = none, half right, momentum' = $\ $, edge label = $j^\mu \qty(\mr e^-)$] (i2);
+                };
+                \vertex [right = 3cm of e] (y1);
+                \vertex [below left = 2cm of y1] (z1) {$\mr e^-$};
+                \vertex [above left = 2cm of y1] (z2) {$\mr e^+$};
+                \vertex [right = 2cm of y1] (x1);
+                \vertex [above right = 2cm of x1] (w1) {$\upmu^-$};
+                \vertex [below right = 2cm of x1] (w2) {$\upmu^+$};
+                \vertex [below = 1cm of w1] (k1);
+                \vertex [above = 1cm of w2] (k2);
+                \vertex [above = 1cm of z1] (l1);
+                \vertex [below = 1cm of z2] (l2);
+                \diagram*{
+                (z1) -- [fermion] (y1) -- [fermion] (z2);
+                (y1) -- [photon, edge label' = $\upgamma$] (x1);
+                (w1) -- [anti fermion] (x1) -- [anti fermion] (w2);
+                (k2) -- [draw = none, half left, momentum = $\ $, edge label' = $j^\mu \qty(\upmu^-)$] (k1);
+                (l1) -- [draw = none, half right, momentum' = $\ $, edge label = $j^\mu \qty(\mr e^-)$] (l2);
+                };
             \end{feynman}
         \end{tikzpicture}
-    \end{align*}
+    \end{center}
     This is equivalent to a counter clockwise rotation by \SI{90}{\degree}. The resulting diagram represents $\mr e^+ \mr e^-$ annihilation followed by $\mu^+\mu^-$ creation.
 \end{example}
 By exchanging the incoming anti muon by an outgoing muon in the $\upmu^+\upmu^-$ annihilation, we get the diagram:
@@ -242,4 +242,91 @@ By exchanging the incoming anti muon by an outgoing muon in the $\upmu^+\upmu^-$
 \end{center}
 This is $\upmu^-$-Bremsstrahlung with subsequent pair creation.
 
-All these processes share the same common transition amplitude, as they contain the same basic interaction.
+All these processes share the same common transition amplitude, as they contain the same basic interaction. The only difference lies in the momenta of external particles.\\
+$\ra$ Thus it is much easier to calculate the related processes once the transition amplitude of one process is known.
+
+\paragraph{Mandelstam variables}
+Assume any process $AB \ra CD$ with the Feynman diagram:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{feynman}
+            \vertex (b1);
+            \vertex [above left = 1cm of b1] (a1) {$\fvec p_A$};
+            \vertex [above right = 1cm of b1] (a2) {$\fvec p_C$};
+            \vertex [below = 1cm of b1] (c1);
+            \vertex [below left = 1cm of c1] (d1) {$\fvec p_B$};
+            \vertex [below right = 1cm of c1] (d2) {$\fvec p_D$};
+            \vertex [below = 0.75cm of b1] (m);
+            \vertex [left = 1.5cm of m] (s);
+            \diagram*{
+            (a1) -- [fermion] (b1) -- [fermion] (a2);
+            (b1) -- [photon] (c1);
+            (d1) -- [fermion] (c1) -- [fermion] (d2);
+            (s) -- [draw = none, momentum = {[arrow style = myblue] $s$}] (m);
+            (a2) -- [draw = none, momentum = {[arrow style = myblue] $t$}] (d2);
+            };
+        \end{feynman}
+    \end{tikzpicture}
+\end{center}
+Here we define the Mandelstam variables
+\begin{align}
+    s \defi \qty(\fvec p_A + \fvec p_B)^2, \qquad t \defi \qty(\fvec p_A - \fvec p_C)^2, \qquad u \defi \qty(\fvec p_A - \fvec p_D)
+\end{align}
+with the identity
+\begin{align}
+    s + t + u = m_A^2 + m_B^2 + m_C^2 + m_D^2\,.
+\end{align}
+A crossing of processes therefore generally means interchanging the Mandelstam variables.
+
+\section{Interaction of a particle in a potential}\label{sec:Interaction_particle_potential}
+We will now alternate the free Hamiltonian $H_0$ with a potential, i.e.
+\begin{align}
+    H_0 \ra H_0 + V\qty(\fvec x)\,.
+\end{align}
+The potential $V$ allows for the transformation from initial to final state $\phi_\mr{i} \ra \phi_\mr{f}$. We can calculate the transition amplitude:
+\begin{align}
+    T_\mr{fi} = \braket{\phi_\mr{f} | V | \phi_\mr{i}} + \text{higher orders}
+\end{align}
+Assumption: $V$ is small and only present for a short time $T$
+\begin{itemize}[$\ra$]
+    \item $\phi_\mr{i}$, $\phi_\mr{f}$ can be treated as plane waves with energy $E_\mr{i}$, $E_\mr{f}$
+    \item $T_\mr{fi}$ can be extended in a perturbation series
+\end{itemize}
+We will do this as ''Born approximation``
+\begin{align}
+    T_\mr{fi} \approx \braket{\phi_\mr{f}| V | \phi_\mr{i}} = - \ti \int \phi_\mr{f}^* \qty(\fvec x) V\qty(\fvec x) \phi_\mr{i} \qty(\fvec x) \dd[4]x\,.
+\end{align}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{feynman}
+            \vertex (b1);
+            \vertex [above left = 1cm of b1] (a1) {$\phi_\mr{i}$};
+            \vertex [above right = 1cm of b1] (a2) {$\phi_\mr{f}$};
+            \vertex [below = 1cm of b1] (c1) {$V\qty(\fvec x)$};
+            \diagram*{
+            (a1) -- [fermion] (b1) -- [fermion] (a2);
+            (b1) -- [photon] (c1);
+            };
+        \end{feynman}
+    \end{tikzpicture}
+\end{center}
+Further assumption: $V\qty(\fvec x)$ does not depend on time.
+\begin{align}\begin{split}
+    T_\mr{fi} & = \underbrace{-\ti \int \phi_\mr{f}^* \qty(\vec x) V\qty(\vec x) \phi_\mr{i}\qty(\vec x) \dd[3]{x}}_{V_\mr{fi}} \cdot \int\limits_{-\nicefrac T2}^{\nicefrac T2} \underbrace{\exp(-\ti \qty(E_\mr{f} - E_\mr{i})t) \dd{t}}_{\substack{\text{two components of}\\ \text{free-particle wave function}}} \\
+    & = -\ti V_\mr{fi} 2 \pi \delta \qty(E_\mr{f} - E_\mr{i})
+\end{split}\end{align}
+The transition rate (probability per unit of time) then reads
+\begin{align}
+    W_\mr{fi} = \gamma_\mr{fi} = 2 \pi \qty|V_\mr{fi}|^2 \delta \qty(E_\mr{f} - E_\mr{i})\,.
+\end{align}
+For many possible final states $\phi_\mr{f}$ integrated over in the measurement, we will sum/integrate over them
+\begin{align}\begin{split}
+    W_\mr{fi} & = 2\pi \int_0^{E_\mr{f}} \rho_\mr{f} \qty(E_\mr{f}) \qty|V_\mr{fi}|^2 \delta @ty(E_\mr{f} - E_\mr{i}) \dd{E_\mr{f}}\\
+    \Ra\quad \boxed{ W_\mr{fi} = 2\pi \qty|V_\mr{fi}|^2 \rho_\mr{f} \qty(E_\mr{i})}
+\end{split}\end{align}
+\begin{compactitem}
+    \item[with] $\rho_\mr{f}$: the phase space density.
+\end{compactitem}
+The boxed equation above is called \tb{Fermi's Golden Rule}.
+
+

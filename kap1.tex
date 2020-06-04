@@ -12,6 +12,24 @@ In general natural units are used: $\hbar = \mathrm c = 1$
     \hbar = \SI{6.6 e-25}{\giga \eV \second} \,\hat = 1\, \longrightarrow \SI{1}{\per \giga \eV} \,\hat \approx\, \SI{6.6e-25}{\second}
 \end{align*}
 \end{example}
+
+Additionally: use the Heaviside units for electromagnetic processes
+\begin{compactitem}[$\rightarrow$]
+    \item take the Coulomb force between to charged particles (with charge e)
+    \begin{align*}
+        F_\mathrm{C} = \frac{\mathrm e^2}{4 \pi \upvarepsilon_0 r^2} \qquad \overset{\upvarepsilon_0 \equiv 1}{\longrightarrow} \frac{\mathrm e^2}{4 \pi r^2}
+    \end{align*}
+    \item remember that $\upvarepsilon_0 \upmu_0 = \mathrm c^{-2}$, which leads to $\upmu_0 = 1$
+\end{compactitem}
+In total we use in particle physics:
+\begin{align}
+    \bm{\boxed{\hbar = \mr c = \upvarepsilon_0 = \upmu_0 = 1}}
+\end{align}
+
+
+
+
+
 \section{Relativistic kinematics}
 We will use four vector notation, i.e.
 \begin{align}
@@ -229,59 +247,58 @@ These give pictorial representations of particle reactions. Perturbative expansi
 
 The above example sketches only the leading order terms. Thus the question arises how one would calculate the full scattering amplitude?
 \begin{align}
-		\tdplotsetmaincoords{0}{0}
-		\feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
-        a [particle = $\mr e^-$] -- [anti fermion] b -- [anti fermion] c [particle = $\mr e^-$];
-        b -- [draw = none] d;
-        e [particle = $\upmu^-$]-- [anti fermion] d -- [anti fermion] f [particle = $\upmu^-$];
-        };
-        =
-        & \underbrace{
-        \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
-        a -- [fermion] b -- [fermion] c;
-        b -- [photon] d;
-        e -- [fermion] d -- [fermion] f;
-        };
-        }_\text{1\textsuperscript{st} order}
-        +
-        \underbrace{
-        \feynmandiagram[vertical = b to g, baseline = -1.45cm, small]{
-        d -- [fermion] c -- [fermion] b -- [fermion] a;
-        b -- [photon] g;
-        c -- [photon] f;
-        e -- [fermion] f -- [fermion] g -- [fermion] h;
-        };
-        + 
-        \feynmandiagram[vertical = c to g, baseline = -1.75cm, small]{
-        a -- [fermion] b -- [fermion] c -- [fermion] d -- [fermion] e;
-        b -- [photon, half left] d;
-        c -- [photon] g;
-        f -- [anti fermion] g -- [anti fermion] h;
-        };
-        + 
-        \feynmandiagram[vertical = b to d, baseline = -2.1cm, small]{
-        a -- [anti fermion] b -- [anti fermion] c;
-        b -- [photon] d -- [fermion, half left] e -- [photon] g;
-        d -- [anti fermion, half right] e;
-        f -- [anti fermion] g -- [anti fermion] h;
-        };
-        }_\text{2\textsuperscript{nd} order}
-        \nonumber \\
-        & +
-        \underbrace{
-        \feynmandiagram[vertical = b1 to e3, baseline = -1.45cm, small]{
-        a -- [anti fermion] b1 -- [anti fermion] b2 -- [anti fermion] b3 -- [anti fermion] c;
-        b1 -- [photon] e3;
-        b2 -- [photon] e2;
-        b3 -- [photon] e1;
-        d -- [fermion] e1 -- [fermion] e2 -- [fermion] e3 -- [fermion] f;
-        };
-        + \dots}_\text{3\textsuperscript{rd} order}
-        + \dots
-        \nonumber \\
-        full\ amplitude = & \underset{\propto \mr e^2 \propto \alpha}{\text{leading order}} + \underset{\propto \mr e^4 \propto \alpha^2}{\text{2\textsuperscript{nd} order}} + \underset{\propto \mr e^6 \propto \alpha^3}{\text{3\textsuperscript{rd} order}}
+    \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
+        a [particle = $\mr e^-$] -- [fermion] b -- [fermion] c [particle = $\mr e^-$],
+        b -- [scalar, opacity = 0] d,
+        e [particle = $\upmu^-$]-- [fermion] d -- [fermion] f [particle = $\upmu^-$],
+    };
+    =
+    & \underbrace{
+    \feynmandiagram[vertical = b to d, baseline = -1.5cm, small]{
+        a -- [fermion] b -- [fermion] c,
+        b -- [photon] d,
+        e -- [fermion] d -- [fermion] f,
+    };
+    }_\text{1\textsuperscript{st} order}
+    +
+    \underbrace{
+    \feynmandiagram[vertical = b to g, baseline = -1.45cm, small]{
+        a -- [anti fermion] b -- [anti fermion] c -- [anti fermion] d,
+        b -- [photon] g,
+        c -- [photon] f,
+        e -- [fermion] f -- [fermion] g -- [fermion] h,
+    };
+    + 
+    \feynmandiagram[vertical = c to g, baseline = -1.75cm, small]{
+        a -- [fermion] b -- [fermion] c -- [fermion] d -- [fermion] e,
+        b -- [photon, half left] d,
+        c -- [photon] g,
+        f -- [anti fermion] g -- [anti fermion] h,
+    };
+    + 
+    \feynmandiagram[vertical = b to d, baseline = -2.1cm, small]{
+        a -- [anti fermion] b -- [anti fermion] c,
+        b -- [photon] d -- [fermion, half left] e -- [photon] g,
+        d -- [anti fermion, half right] e,
+        f -- [anti fermion] g -- [anti fermion] h,
+    };
+    }_\text{2\textsuperscript{nd} order}
+    \nonumber \\
+    & +
+    \underbrace{
+    \feynmandiagram[vertical = b1 to e3, baseline = -1.45cm, small]{
+        a -- [anti fermion] b1 -- [anti fermion] b2 -- [anti fermion] b3 -- [anti fermion] c,
+        b1 -- [photon] e3,
+        b2 -- [photon] e2,
+        b3 -- [photon] e1,
+        d -- [fermion] e1 -- [fermion] e2 -- [fermion] e3 -- [fermion] f,
+    };
+    + \dots}_\text{3\textsuperscript{rd} order}
+    + \dots
+    \nonumber \\
+    full\ amplitude = & \underset{\propto \mr e^2 \propto \alpha}{\text{leading order}} + \underset{\propto \mr e^4 \propto \alpha^2}{\text{2\textsuperscript{nd} order}} + \underset{\propto \mr e^6 \propto \alpha^3}{\text{3\textsuperscript{rd} order}}
 \end{align}
 \begin{compactitem}
     \item[with] $\displaystyle \alpha = \frac{\mr e^2}{4 \pi \hbar \mr c \upvarepsilon_0} = \frac{1}{137}$
 \end{compactitem}
-Thus in QED it is sufficient to only calculate the first order. It is sufficent to understand the basics of the process (cross section, angular distributions). For comparison to precision measurements sometimes more than 100 diagrams have to calculated.
+Thus in QED it is sufficient to only calculate the first order. It is sufficient to understand the basics of the process (cross section, angular distributions). For comparison to precision measurements sometimes more than 100 diagrams have to calculated.
